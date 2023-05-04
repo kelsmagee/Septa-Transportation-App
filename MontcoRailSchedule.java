@@ -33,7 +33,6 @@ public class MontcoRailSchedule extends Application {
       BufferedReader reader1 = new BufferedReader(new InputStreamReader(conn.getInputStream()));
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
       return gson.fromJson(reader1, SeptaInfo[].class);
-     
    }
    @Override
     public void start(Stage primaryStage) {
@@ -48,7 +47,7 @@ public class MontcoRailSchedule extends Application {
         
         // Create a VBox to hold the destinations
       VBox destinationsBox = new VBox();
-      Label destinationsLabel = new Label("Destination at Penllyn Station:");
+      Label destinationsLabel = new Label("Destination: Penllyn Station");
       destinationsBox.getChildren().add(destinationsLabel);
    
    // Create labels to display the departure and arrival ETA
