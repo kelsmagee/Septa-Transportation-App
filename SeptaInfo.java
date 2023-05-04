@@ -14,13 +14,41 @@ public class SeptaInfo  {
    
    public SeptaInfo()   {  }
    
-   public SeptaInfo(String departureTime, String arrivalTime, String delay, String trainNumber)
-   {
-   this.departureTime = departureTime;
-   this.arrivalTime = arrivalTime;
-   this.delay = delay;
-   this.trainNumber = trainNumber;
-   this.trainLine = trainLine;
+   public SeptaInfo(String departureTime, String arrivalTime, String delay, String trainNumber) {
+      this.departureTime = departureTime;
+      this.arrivalTime = arrivalTime;
+      this.delay = delay;
+      this.trainNumber = trainNumber;
+      this.trainLine = trainLine;
    }
-
+   public void setDepartureTime(String departureTime) {
+      this.departureTime = departureTime;
+   }
+   public void setArrivalTime(String arrivalTime)   {
+      this.arrivalTime = arrivalTime;
+   }
+   public void setDelay(String delay)   {
+      this.delay = delay;
+   }
+   public void settrainNumber(String trainNumber)  {
+      this.trainNumber = trainNumber;
+   }
+   public String getDepartureTime() {
+      return this.departureTime;
+   }   
+   public String getArrivalTime()   {
+      return this.arrivalTime;
+   }
+   public String getDelay()   {
+      return this.delay;
+   }
+   public String getTrainNumber()   {
+      return this.trainNumber;
+   }
+   
+   public String toString()   {
+      return "Montco Rail Schedule: " + "\nTrain Number: " + this.trainNumber + "\nDeparture: " + 
+             this.departureTime + "\nArrival: " + this.arrivalTime + "\nDelay: " + this.delay;
+    
+   }
 }
