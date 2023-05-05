@@ -43,8 +43,7 @@ public class MontcoRailSchedule extends Application {
         // Create a choice box for the starting station
       ChoiceBox<String> startingStationBox = new ChoiceBox<>();
       startingStationBox.getItems().addAll("Suburban Station", "Doylestown");
-//       startingStationBox.setValue("Suburban");
-        
+              
         // Create a VBox to hold the destinations
       VBox destinationsBox = new VBox();
       Label destinationsLabel = new Label("Destination: Penllyn Station");
@@ -61,42 +60,38 @@ public class MontcoRailSchedule extends Application {
             String selectedStation = startingStationBox.getValue();
          // Retrieve the data from the API
          // and update the destinations VBox
-         // with the results
          
-         // Assume the API response is a JSON object with departure and arrival ETA
-         // You would need to modify this based on the actual API response
-         try   {
-            System.out.println(getApiUrl(selectedStation));
-            SeptaInfo[] apiResponse = retrieveDataFromApi(getApiUrl(selectedStation));
-            String departureTime = apiResponse[0].getDepartureTime();
-            String arrivalTime = apiResponse[0].getArrivalTime();
-         
-         // Update the departure and arrival labels
-            departureLabel.setText("Departure ETA: " + departureTime);
-            arrivalLabel.setText("Arrival ETA: " + arrivalTime);
+            try   {
+               System.out.println(getApiUrl(selectedStation));
+               SeptaInfo[] apiResponse = retrieveDataFromApi(getApiUrl(selectedStation));
+               String departureTime = apiResponse[0].getDepartureTime();
+               String arrivalTime = apiResponse[0].getArrivalTime();
+            
+            // Update the departure and arrival labels
+               departureLabel.setText("Departure ETA: " + departureTime);
+               arrivalLabel.setText("Arrival ETA: " + arrivalTime);
             }
             catch (Exception e)  {
                System.out.println(e);
             }
-     });
+         });
    
    // Set the spacing and alignment for the destinations VBox
       destinationsBox.setSpacing(10);
       destinationsBox.setAlignment(Pos.CENTER);
-        
    
-        // Create an HBox to hold the header label and the starting station choice box
+   // Create an HBox to hold the header label and the starting station choice box
       HBox headerBox = new HBox(headerLabel, new Label("Starting Station: "), startingStationBox);
       headerBox.setAlignment(Pos.CENTER);
       headerBox.setSpacing(100);
    
-        // Create a BorderPane and set the header to the HBox
+   // Create a BorderPane and set the header to the HBox
       BorderPane root = new BorderPane();
       root.setTop(headerBox);
       root.setCenter(destinationsBox);
    
-        // Create a scene with the BorderPane as the root node
-      Scene scene = new Scene(root, 800, 600);
+   // Create a scene with the BorderPane as the root node
+      Scene scene = new Scene(root, 700, 300);
    
       primaryStage.setTitle("Montco Rail Schedule");
       primaryStage.setScene(scene);
